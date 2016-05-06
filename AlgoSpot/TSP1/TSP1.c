@@ -9,7 +9,7 @@ int mark[MAX];
 double map[MAX][MAX];
 double min;
 
-void TSP(int rec, double sum,int cnt){
+void TSP(int rec,double sum,int cnt){
 	int i;
 
 	if(mark[rec])	return;
