@@ -10,7 +10,7 @@ typedef struct{
 
 Queue queue;
 
-void initStack(){
+void initQueue(){
 	queue.front = -1;
 	queue.rear = -1;
 }
