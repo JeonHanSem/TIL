@@ -10,7 +10,7 @@ int main(){
 	int arr[MAX];
 
 	scanf("%s",str);
-	for(i=0,j=0;str[i];i++){	//NULL이 아닐때까지 (strlen하면 시관초과)
+	for(i=0,j=0;str[i];i++){	//NULL이 아닐때까지 (strlen하면 시간초과)
 		if(str[i]!=str[j])	j=i;	//같은숫자 아닐때 초기화
 		arr[i]=i-j;	//연속적으로 같으면 갯수 세기
 	}
