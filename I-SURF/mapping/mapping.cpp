@@ -24,7 +24,6 @@ int main(){
 		pos = find(cmp.begin(),cmp.end(),cmp.at(i)) - cmp.begin();
 		fout << cmp.at(i) << " -> " << pos << endl;
 	}
-
 	fin.close();
 	fout.close();
 }
