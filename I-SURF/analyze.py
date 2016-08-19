@@ -29,7 +29,6 @@ def printInfo(r_pos):
 #	print iterTime / round	
 #	for i in range(1,r_pos+1):
 #		print "ROUND #%d time : %d s" % (i, iter_sum[i])
-	
 
 def Round(lines):
 	r_pos = 0
@@ -42,11 +41,33 @@ def Round(lines):
 		roundNewEdge(line,r_pos)
 	printInfo(r_pos)
 	
+def GC(lines):
+	cnt=0
+	totalTime =0
+	totalHeap =0
+	for line in lines:
+		cnt+=1
+		if cnt < 4:
+			continue
+		gc = line.split()
+		if len(gc) is 5:
+			totalHeap += int(gc[2][gc[2].find('(')+1:gc[2].find(')')-1])
+			totalTime += float(gc[3])
+		elif len(gc) is 6:
+			totalHeap += int(gc[3][gc[3].find('(')+1:gc[3].find(')')-1])
+			totalTime += float(gc[4])
+	print "GC count : %d " % (cnt - 3)
+	print "GC time : %f sec" % totalTime
+	print "Consume heap size : %dK" % totalHeap
+
 def main():
-	f = open(sys.argv[1],"r")
+	f1 = open(sys.argv[1],"r")
 	
-	lines = f.readlines()
+	lines = f1.readlines()
 	Round(lines)
 
+	f2 = open(sys.argv[2],"r")
+	lines = f2.readlines()
+	GC(lines)
 if __name__ == '__main__':
 	main()
