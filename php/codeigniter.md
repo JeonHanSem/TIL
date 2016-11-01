@@ -71,3 +71,14 @@ form_open 사용
 ##DB Insert 시에 키값 받기
 	$this → db → insert_id()
 table의 PK를 가져온다 (단, A.I 일때만 가능)
+
+##JAVA script 확인창
+	if(confirm("are you serious?") == true){
+	}
+
+##JAVA script redirect
+	location.href="xxxxx"
+	
+##query 결과 반환
+	$query->row() 		//값 1개 반환
+	$query->result() 	//값 배열로 반환
