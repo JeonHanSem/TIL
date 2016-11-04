@@ -82,3 +82,16 @@ table의 PK를 가져온다 (단, A.I 일때만 가능)
 ##query 결과 반환
 	$query->row() 		//값 1개 반환
 	$query->result() 	//값 배열로 반환
+	
+##script에서 php로 값 전달
+csrf 방지를 적용했을때도 될지는 의문이다
+
+	/** script **/
+	$.post("/ajax_makers/more_list/"+list_type+"/"+last_id, {except_cond:arr},
+	function(data){
+	}):
+	
+	/** php **/
+	$arr = $this->input->post('except_cond',true);
+##html에서 a 태그 밑줄 지우기
+속성에 text-decoration:none 추가하기
