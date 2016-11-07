@@ -95,3 +95,13 @@ csrf 방지를 적용했을때도 될지는 의문이다
 	$arr = $this->input->post('except_cond',true);
 ##html에서 a 태그 밑줄 지우기
 속성에 text-decoration:none 추가하기
+
+##html에서 file type버튼 이미지로 변경하기
+	<input type=file name='file1' style='display: none;'> 
+	<input type='text' name='file2' id='file2'> 
+	<img src='이미지경로' border='0' onclick='document.all.file1.click(); document.all.file2.value=document.all.file1.value'>
+	
+
+##html text값 힌트주기
+placehoder 사용
+
