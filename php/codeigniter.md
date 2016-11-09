@@ -107,4 +107,5 @@ placehoder 사용
 ##codeigniter에서 textarea사용
 textarea 다음 필드에 바로 name이 와야함
 
-
+##php에서 DB에 저장시에 줄바꿈
+	str_replace("\r\n","<br/>",$contents);
