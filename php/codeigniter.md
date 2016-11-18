@@ -109,3 +109,56 @@ textarea 다음 필드에 바로 name이 와야함
 
 ##php에서 DB에 저장시에 줄바꿈
 	str_replace("\r\n","<br/>",$contents);
+##AJAX에서 view로 값 전달시
+	//ajax controller
+	echo val;
+	//view
+	$.post(~~~,
+	function(data){
+		#data가 val을 받음
+	});
+##facebook공유
+	window.open("http://www.facebook.com/sharer.php?u="+url);
+##naver band 공유
+	//mobile
+	bandapp://create/post?text=<문자열>&route=<밴드 공유 버튼을 사용하는 서비스의 도메인>
+	//pc
+	http://band.us/plugin/share?body=<문자열>&route=<밴드 공유 버튼을 사용하는 서비스의 도메인>
+##kakao 공유
+	<!doctype HTML>
+	<html>
+	<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>KakaoLink Demo(Web Button) - Kakao Javascript SDK</title>
+    <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+  	</head>
+  	<body>
+  		<h3>카카오톡 링크는 카카오톡 앱이 설치되어 있는 모바일 기기에서만 전송 가능합니다.</h3>
+    	<a id="kakao-link-btn" href="javascript:;">
+      <img src="http://dn.api1.kage.kakao.co.kr/14/dn/btqa9B90G1b/GESkkYjKCwJdYOkLvIBKZ0/o.jpg" />
+    	</a>
+
+    <script>
+    // 사용할 앱의 Javascript 키를 설정해 주세요.
+    Kakao.init('YOUR APP KEY');
+
+    // 카카오톡 링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
+    Kakao.Link.createTalkLinkButton({
+      container: '#kakao-link-btn',
+      label: '카카오링크 샘플에 오신 것을 환영합니다.',
+      image: {
+        src: 'http://dn.api1.kage.kakao.co.kr/14/dn/btqaWmFftyx/tBbQPH764Maw2R6IBhXd6K/o.jpg',
+        width: '300',
+        height: '200'
+      },
+      webButton: {
+        text: '카카오 디벨로퍼스',
+        url: 'https://dev.kakao.com/docs/js' // 앱 설정의 웹 플랫폼에 등록한 도메인의 URL이어야 합니다.
+      }
+    });
+    </script>
+  	</body>
+	</html>
+
+출처 : https://developers.kakao.com/docs/js 
