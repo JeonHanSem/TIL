@@ -162,3 +162,17 @@ textarea 다음 필드에 바로 name이 와야함
 	</html>
 
 출처 : https://developers.kakao.com/docs/js 
+
+##암호화 복구화
+	//암호화
+	$encrypted_password = password_hash($password, PASSWORD_DEFAULT);
+
+	if($encrypted_password === FALSE) {
+		return false;
+	}
+
+	//대조
+	if(!password_verify($password, $encrypted_password)) {
+		return false;
+	}
+	//$password 는 원형 $encrypted_password 는 디비에 암호화되어 저장된 값
