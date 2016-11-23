@@ -176,3 +176,6 @@ textarea 다음 필드에 바로 name이 와야함
 		return false;
 	}
 	//$password 는 원형 $encrypted_password 는 디비에 암호화되어 저장된 값
+
+##ci에서 form_multi 사용시 한글깨짐 해결
+	system/helper/form_helper.php에서 charset=utf-8 추가
