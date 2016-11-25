@@ -179,3 +179,17 @@ textarea 다음 필드에 바로 name이 와야함
 
 ##ci에서 form_multi 사용시 한글깨짐 해결
 	system/helper/form_helper.php에서 charset=utf-8 추가
+
+##mysql join
+	WHERE
+		a join b
+		on a.idx = b.a_idx
+	//idx같은것만 출력
+	WHERE
+		a left join b
+		on a.idx = b.a_idx
+	//idx같지않아도 왼쪽테이블값 모두출력
+	WHERE
+		a right join b
+		on a.idx = b.a_idx
+	//idx같지않아도 오른쪽테이블값 모두출력
