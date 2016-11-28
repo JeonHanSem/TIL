@@ -179,6 +179,8 @@ textarea 다음 필드에 바로 name이 와야함
 
 ##ci에서 form_multi 사용시 한글깨짐 해결
 	system/helper/form_helper.php에서 charset=utf-8 추가
+	2016.11.28 발견사항
+	한글위해 ;추가후 작성하였는데 그렇게되면 이미지 업로드 실패
 
 ##mysql join
 	WHERE
