@@ -29,7 +29,6 @@ int main(){
 	int arr[MAXSIZE];
 
 	scanf("%d",&n);
-	
 	for(i=0;i<n;i++)
 		scanf("%d",&arr[i]);
 	printf("%d\n",calc(arr,n));
