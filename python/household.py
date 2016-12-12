@@ -3,6 +3,9 @@
 # 2016 2학기 컴프 프로젝트
 # python3 기준
 
+# -*- coding: utf-8 -*-
+# UTF-8 encoding when using korean
+
 housekeeping_book = []
 
 def add_record(date, item, price):
@@ -19,24 +22,29 @@ def read_database(filename):
 		add_record(date, item, price)
 		
 def print_scores(l):
+	temp = []
 	for x in l:
-		print(x['date'], x['item'], x['price'])
+		temp +=[{'date': x['date'], 'item': x['item'], 'price': x['price']}]
+	
+	temp.sort(key=_price,reverse=True)
+	for x in temp:
+		print("%s %s %d" % (x['date'], x['item'], int(x['price'])))
 		
 def print_by_item(l):
 	temp = []
 	for x in l:
 		temp +=[{'date': x['date'], 'item': x['item'], 'price': x['price']}]
 	
-	temp.sort(key=price,reverse=True)
-	print('max =', temp[0]['date'],temp[0]['item'],temp[0]['price'])
+	temp.sort(key=_price,reverse=True)
+	print("max = %s %s %d" % (temp[0]['date'],temp[0]['item'],int(temp[0]['price'])))
 	n=len(temp)-1
-	print('min =', temp[n]['date'],temp[n]['item'],temp[n]['price'])
+	print("min = %s %s %d" % (temp[n]['date'],temp[n]['item'],int(temp[n]['price'])))
 	
 def print_total_price(l):
 	_sum=0
 	for x in l:
 		_sum+=x['price']
-	print('sum = %d' % _sum)
+	print("sum = %d" % _sum)
 		
 def search_by_date(date):
 	return [x for x in housekeeping_book if x['date'] == date]
@@ -44,7 +52,7 @@ def search_by_date(date):
 def search_by_item(item):
 	return [x for x in housekeeping_book if x['item'] == item]
 
-def price(t):
+def _price(t):
 	return t['price']
 
 def order_by_price():
@@ -52,18 +60,17 @@ def order_by_price():
 	for x in housekeeping_book:
 		temp +=[{'date': x['date'], 'item': x['item'], 'price': x['price']}]
 		
-	temp.sort(key=price,reverse=True)
+	temp.sort(key=_price,reverse=True)
 	num=0
 	for x in temp:
-		print(x['date'],x['item'],x['price'])
+		print("%s %s %d" % (x['date'], x['item'], int(x['price'])))
 		num+=1
 		if num == 10: break
 	
 read_database('data/expenses.txt')
 
-print("1. Data input    2. Search by date    3. Top ten    4. Search by item    X. Quit")
-
 while True:
+	print("1. Data input    2. Search by date    3. Top ten    4. Search by item    X. Quit")
 	selection = input("Selection: ")
 	if selection == "X":
 		break
@@ -72,7 +79,7 @@ while True:
 		date = input("Date: ")
 		item = input("Item: ")
 		price = input("Price: ")
-		add_record(date, item, price)
+		add_record(date, item, int(price))
 	elif selection == "2":
 		date = input("Date: ")
 		print_total_price(search_by_date(date))
