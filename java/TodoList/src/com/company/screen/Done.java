@@ -2,6 +2,7 @@ package com.company.screen;
 
 import com.company.Lumberroom;
 import com.company.Todo;
+import com.company.ViewController;
 
 import java.util.InputMismatchException;
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.Scanner;
 /**
  * 완료된 todo
  */
-public class Done implements View, Menu {
+public class Done extends ViewController implements View, Menu {
     @Override
     public void printView() {
         Lumberroom lumberroom = new Lumberroom();
@@ -33,13 +34,13 @@ public class Done implements View, Menu {
         View view;
         if(signal.equals("a")){
             view = new New();
-            view.printView();
+            print(view);
         }else if(signal.equals("b")){
             try {
                 System.out.print("Choose the number : ");
                 int todoIdx = scanner.nextInt();
                 view = new Detail(todoIdx);
-                view.printView();
+                print(view);
             }catch (InputMismatchException e){
                 System.out.println("WrongType");
                 menuView();
@@ -49,7 +50,7 @@ public class Done implements View, Menu {
             }
         }else if(signal.equals("c")){
             view = new Yet();
-            view.printView();
+            print(view);
         }else if(signal.equals("x")){
             return;
         }else{

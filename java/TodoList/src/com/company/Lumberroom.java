@@ -23,6 +23,10 @@ public class Lumberroom implements TodoStorage{
         todoList.put(todo.getTodoIdx(),todo);
     }
 
+    public void deleteTodo(int todoIdx){
+        todoList.remove(todoIdx);
+    }
+
     public Todo loadTodo(int todoIdx){
         return todoList.get(todoIdx);
     }

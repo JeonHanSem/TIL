@@ -2,6 +2,7 @@ package com.company.screen;
 
 import com.company.Lumberroom;
 import com.company.Todo;
+import com.company.ViewController;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -10,7 +11,7 @@ import java.util.Scanner;
 /**
  * todo 상세보기
  */
-public class Detail implements View, Menu, Setting {
+public class Detail extends ViewController implements View, Menu, Setting {
     private Lumberroom lumberroom;
     private Todo todo;
 
@@ -38,7 +39,7 @@ public class Detail implements View, Menu, Setting {
 
     @Override
     public void menuView() {
-        System.out.println("----------------------------------\na. complete\tb. modify\tc. yetList");
+        System.out.println("---------------------------------------\na. complete\tb. modify\tc. delete\td. yetList");
         System.out.print("Choose the menu : ");
         Scanner scanner = new Scanner(System.in);
         String signal = scanner.next();
@@ -47,12 +48,15 @@ public class Detail implements View, Menu, Setting {
         if(signal.equals("a")){
             setting();
             printView();
-        }else if(signal.equals("b")){
+        }else if(signal.equals("b")) {
             view = new Modify(todo.getTodoIdx());
-            view.printView();
+            print(view);
         }else if(signal.equals("c")){
+            view = new Delete(todo.getTodoIdx());
+            print(view);
+        }else if(signal.equals("d")){
             view = new Yet();
-            view.printView();
+            print(view);
         }else{
             menuView();
         }

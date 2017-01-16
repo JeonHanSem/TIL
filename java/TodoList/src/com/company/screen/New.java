@@ -2,6 +2,7 @@ package com.company.screen;
 
 import com.company.Lumberroom;
 import com.company.Todo;
+import com.company.ViewController;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -10,7 +11,7 @@ import java.util.Scanner;
 /**
  * todo 생성
  */
-public class New implements View, Setting {
+public class New extends ViewController implements View, Setting {
     private String title;
     private String content;
     private String deadLine;
@@ -29,7 +30,7 @@ public class New implements View, Setting {
         setting();
 
         View yet = new Yet();
-        yet.printView();
+        print(yet);
     }
 
     @Override
